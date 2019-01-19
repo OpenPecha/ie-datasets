@@ -49,7 +49,7 @@ Human correction of the segmentation of the SOAS corpus.
 - མཛངསབླུན། (ཕྱིར་མི་འོང་བ་)
 - བུ་སྟོན། all (བརྗོད་དུ་མེད་པ)
 - མི་ལ་རས་པ། all (མི་མ་ཡིན་)
-- བུ་སྟོན། all
+- མི་ལ་རས་པ། all (ཕྱིན་ཅི་མ་ལོག་པ་)
 - བུ་སྟོན། all
 - བུ་སྟོན། all
 - བུ་སྟོན། all
