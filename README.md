@@ -150,7 +150,7 @@ Human correction of the segmentation of the SOAS corpus.
 - མི་ལ་རས་པ། all (དེ་ནི་)
 - མི་ལ་རས་པ། all (རེ་ཞིག་)
 - མི་ལ་རས་པ། all (ཅི་མ་རུང་)
-- མི་ལ་རས་པ། all ()
+- མི་ལ་རས་པ། all (ད་ནི་)
 - མི་ལ་རས་པ། all ()
 - མི་ལ་རས་པ། all ()
 - མི་ལ་རས་པ། all ()
