@@ -1,5 +1,6 @@
 import requests
 from generate_suggestions import tok, segment
+from pathlib import Path
 
 
 def prepare_to_suggest(config):
@@ -84,9 +85,10 @@ def upload_suggestions(server, suggestions):
 
 
 def main(dataset, schema):
+    user, pwd = Path('config').read_text().strip().split('\n')
     config = {'domain': 'tiblex',
-              'user': 'dfg9w',
-              'pwd': 'Boddgu99',
+              'user': user,
+              'pwd': pwd,
               'dataset': dataset,
               'schema': schema}
     server, examples, tagset = prepare_to_suggest(config)
