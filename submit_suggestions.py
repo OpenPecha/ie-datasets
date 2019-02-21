@@ -1,5 +1,5 @@
 import requests
-from pybo import BoTokenizer
+from generate_suggestions import tok, segment
 
 
 def prepare_to_suggest(config):
@@ -46,7 +46,6 @@ def prepare_to_suggest(config):
 
 
 def generate_suggestions(examples, tagset):
-    tok = BoTokenizer('GMD')
     suggestions = []
     for example in examples:
         segmented = segment(tok, example['content'], tagset)
@@ -82,32 +81,6 @@ def upload_suggestions(server, suggestions):
     resp = server['session'].put(f"{server['api_base']}projects/default/task_definitions/explore-tags-only/",
                                  json=modelIds).json()
     return resp
-
-
-def get_last_letter_idx(token):
-    if token.syls:
-        return token.syls[-1][-1]
-    return 0
-
-
-def segment(tok, string, tagset):
-    tokens = tok.tokenize(string, split_affixes=False, lemmatize=False)
-    print('ok')
-    output = []
-    idx = 0
-    for t in tokens:
-        start = idx
-
-        if t.type == 'syl':
-            end = start + len(t.content)
-            if t.affixed:
-                type = tagset['Aword']
-            else:
-                type = tagset['Word']
-            output.append((type, start, end))
-
-        idx = start + len(t.content)
-    return output
 
 
 def main(dataset, schema):
