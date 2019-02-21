@@ -1,9 +1,5 @@
 import requests
 from pybo import BoTokenizer
-import json
-import pandas as pd
-from pprint import pprint
-from requests.auth import HTTPBasicAuth
 
 
 def prepare_to_suggest(config):
@@ -90,7 +86,7 @@ def upload_suggestions(server, suggestions):
 
 def get_last_letter_idx(token):
     if token.syls:
-        return token[-1][-1]
+        return token.syls[-1][-1]
     return 0
 
 
@@ -101,12 +97,13 @@ def segment(tok, string, tagset):
     idx = 0
     for t in tokens:
         start = idx
-        end = start + get_last_letter_idx(t)
+
         if t.type == 'syl':
+            end = start + len(t.content)
             if t.affixed:
-                type = tagset['ཕྲད་ཡོད།']
+                type = tagset['Aword']
             else:
-                type = tagset['མིང་ཚིག']
+                type = tagset['Word']
             output.append((type, start, end))
 
         idx = start + len(t.content)
@@ -125,6 +122,6 @@ def main(dataset, schema):
     print(resp)
 
 
-dataset = 'test1'
-schema = 'segment'
+dataset = 'test4'
+schema = 'segmentation'
 main(dataset, schema)
