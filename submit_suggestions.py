@@ -30,14 +30,12 @@ def prepare_to_suggest(config):
     datasets = session.get(API_BASE+'projects/default/datasets/').json()
 
     dataset = next(filter(lambda x: x['slug'] == DATASET_NAME, datasets))
-    examples =session.get(dataset['url']+'examples/').json()
+
+    examples = session.get(dataset['url']+'examples/').json()
 
     # Step 2 Get the tagset
     schemas = session.get(f'{API_BASE}projects/default/schemas/').json()
-    schema = None
-    for s in schemas:
-        if s['slug'] == SCHEMA_NAME:
-            schema = s
+    schema = next(filter(lambda x: x['slug'] == SCHEMA_NAME, schemas))
     assert schema, 'schema not found.'
 
     tags = session.get(schema['url']+'tags/').json()
@@ -97,6 +95,6 @@ def main(dataset, schema):
     print(resp)
 
 
-dataset = 'test4'
+dataset = 'tag5'
 schema = 'segmentation'
 main(dataset, schema)
