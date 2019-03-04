@@ -21,6 +21,7 @@ def prepare_to_suggest(config):
     response = requests.post(f"{SERVER}/auth/token/create/",
                              json={"username": LT_USERNAME,
                                    "password": LT_PASSWORD})
+    print(response)
     token = response.json()['key']
     headers = {'Authorization': f'Token {token}'}
     session = requests.session()
@@ -95,6 +96,6 @@ def main(dataset, schema):
     print(resp)
 
 
-dataset = 'tag5'
-schema = 'segmentation'
+dataset = 'test15'
+schema = 'segment'
 main(dataset, schema)

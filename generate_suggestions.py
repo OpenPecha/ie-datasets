@@ -20,9 +20,9 @@ def segment(tok, string, tagset):
         if t.type == 'syl':
             end = start + len(t.content)
             if t.affixed:
-                type = tagset['Aword']  # hard-coded value for segmentation schema
+                type = tagset['ཕྲད་ཡོད།']  # hard-coded value for segmentation schema
             else:
-                type = tagset['Word']  # idem
+                type = tagset['མིང་ཚིག']  # idem
             output.append((type, start, end))
 
         idx = start + len(t.content)
