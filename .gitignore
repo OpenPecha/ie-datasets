@@ -3,6 +3,7 @@
 config
 # User data
 pybo.yaml
+*.json
 
 ### Eclipse ###
 .metadata
