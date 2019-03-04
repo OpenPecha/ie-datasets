@@ -15,7 +15,7 @@ def prepare_to_suggest(config):
     SCHEMA_NAME = config['schema']
 
     # connect to the server
-    SERVER = f'https://api-{LIGHTTAG_DOMAIN}.lighttag.io/'
+    SERVER = f'https://{LIGHTTAG_DOMAIN}.lighttag.io/'
     API_BASE = SERVER + 'api/v1/'
 
     response = requests.post(f"{SERVER}/auth/token/create/",
