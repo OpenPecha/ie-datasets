@@ -18,11 +18,14 @@ def prepare_to_suggest(config):
     SERVER = f'https://{LIGHTTAG_DOMAIN}.lighttag.io/'
     API_BASE = SERVER + 'api/v1/'
 
-    response = requests.post(f"{SERVER}/auth/token/create/",
+    response = requests.post(f"{SERVER}api/auth/token/create/",
                              json={"username": LT_USERNAME,
                                    "password": LT_PASSWORD})
-    print(response)
-    token = response.json()['key']
+    print('printing response:', response)
+    print('printing "response.request.url":', response.request.url)
+    print('now executing "response.json()":')
+    res_json = response.json()
+    token = res_json['key']
     headers = {'Authorization': f'Token {token}'}
     session = requests.session()
     session.headers = headers
