@@ -1,39 +1,44 @@
-from pybo import BoTokenizer
-
-tok = BoTokenizer('GMD')
+from pybo import BoPipeline
 
 
-def get_last_letter_idx(token):
-    if token.syls:
-        return token.syls[-1][-1]
-    return 0
-
-
-def segment(tok, string, tagset):
-    tokens = tok.tokenize(string, split_affixes=False, lemmatize=False)
-    print('ok')
+def pos_suggestions(tokens):
     output = []
     idx = 0
     for t in tokens:
         start = idx
 
         if t.type == 'syl':
-            end = start + len(t.content)
+            end = start + t.syls[-1][-1] + 1
             if t.affixed:
-                type = tagset['ཕྲད་ཡོད།']  # hard-coded value for segmentation schema
+                pos = t.pos
             else:
-                type = tagset['མིང་ཚིག']  # idem
-            output.append((type, start, end))
+                pos = t.pos
+            output.append([pos, start, end])
 
         idx = start + len(t.content)
     return output
 
 
+g = BoPipeline('dummy', 'pybo', ('pybo_pos_suggestions', pos_suggestions), 'dummy', pybo_profile='GMD')
+truc = g.pipe_str('ཀུན་ཀཀ་བཀྲ་ཤིས་པའི་བདེ་ལེགས།')
+# truc contains:
+# [['DET', 0, 3], ['non-word', 4, 6], ['NOUN', 7, 16], ['PART', 16, 18], ['NOUN', 19, 27]]
+
+
+def segment(string, tagset):
+    suggestions = g.pipe_str(string)
+    for s in suggestions:
+        try:
+            s[0] = tagset[s[0]]
+        except KeyError:
+            s[0] = tagset['X']
+    return suggestions
+
+
 def generate_suggestions(examples, tagset):
     suggestions = []
     for example in examples:
-        segmented = segment(tok, example['content'], tagset)
-        print('ok')
+        segmented = segment(example['content'], tagset)
         for tag_id, start, end in segmented:
             suggestion = {  # Create a suggestion
                 "example_id": example['id'],  # That refers to a particular example
@@ -76,6 +81,8 @@ if __name__ == '__main__':
     task_name = 'test15'
 
     examples = [{'content': content, 'id': 'dunno'}]
-    suggestions = generate_suggestions(examples, tagset)
-
+    suggestions = g.pipe_str(content)
+    for pos, start, end in suggestions:
+        substr = content[start:end]
+        print()
     Path(task_name + '_suggestions.json').write_text(json.dumps(suggestions, sort_keys=True, indent=4))

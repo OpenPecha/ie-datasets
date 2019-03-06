@@ -21,9 +21,6 @@ def prepare_to_suggest(config):
     response = requests.post(f"{SERVER}api/auth/token/create/",
                              json={"username": LT_USERNAME,
                                    "password": LT_PASSWORD})
-    print('printing response:', response)
-    print('printing "response.request.url":', response.request.url)
-    print('now executing "response.json()":')
     res_json = response.json()
     token = res_json['key']
     headers = {'Authorization': f'Token {token}'}
@@ -33,7 +30,11 @@ def prepare_to_suggest(config):
     # Step 1 Getting the examples to annotate
     datasets = session.get(API_BASE+'projects/default/datasets/').json()
 
-    dataset = next(filter(lambda x: x['slug'] == DATASET_NAME, datasets))
+    try:
+        dataset = next(filter(lambda x: x['slug'] == DATASET_NAME, datasets))
+    except StopIteration:
+        print("Can't continue to execute. The dataset might not exist")
+        exit()
 
     examples = session.get(dataset['url']+'examples/').json()
 
@@ -51,8 +52,7 @@ def prepare_to_suggest(config):
 def generate_suggestions(examples, tagset):
     suggestions = []
     for example in examples:
-        segmented = segment(tok, example['content'], tagset)
-        print('ok')
+        segmented = segment(example['content'], tagset)
         for tag_id, start, end in segmented:
             suggestion = {  # Create a suggestion
                 "example_id": example['id'],  # That refers to a particular example
@@ -68,7 +68,7 @@ def generate_suggestions(examples, tagset):
     }
     data = {
         "model": {
-            "name": "pybo",  # Give the model a name
+            "name": "pybo-pos",  # Give the model a name
             "metadata": model_metadata  # Provide metadata (optional)
         },
         "suggestions": suggestions  # Attach the suggestions you made before
@@ -99,6 +99,6 @@ def main(dataset, schema):
     print(resp)
 
 
-dataset = 'test15'
+dataset = 'dzanglun-big-chunk'
 schema = 'segment'
 main(dataset, schema)
