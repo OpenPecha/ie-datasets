@@ -19,7 +19,11 @@ def pos_suggestions(tokens):
     return output
 
 
-pipeline = BoPipeline('dummy', 'pybo', ('pybo_pos_suggestions', pos_suggestions), 'dummy', pybo_profile='GMD')
+pipeline = BoPipeline('dummy',  # preprocessor
+                      'pybo',   # tokenizer
+                      ('pybo_pos_suggestions', pos_suggestions),  # processor
+                      'dummy',  # formatter
+                      pybo_profile='GMD')
 
 
 def segment(string, tagset):
@@ -33,6 +37,10 @@ def segment(string, tagset):
 
 
 def generate_suggestions(examples, tagset):
+    """
+    Duplicate of the function in submit_suggestions.py
+    Only use when generating a json file with the wanted suggestions.
+    """
     suggestions = []
     for example in examples:
         segmented = segment(example['content'], tagset)

@@ -1,47 +1,32 @@
 import requests
-from generate_suggestions import tok, segment
+from generate_suggestions import segment
 from pathlib import Path
 
 
 def prepare_to_suggest(config):
-    # CONFIG
-    # server
-    LIGHTTAG_DOMAIN = config['domain']  # should be your lighttag domain
-    LT_USERNAME = config['user']  # Username of manager user
-    LT_PASSWORD = config['pwd']  # password of manager user
-    # dataset
     DATASET_NAME = config['dataset']
-    # schema
     SCHEMA_NAME = config['schema']
 
-    # connect to the server
+    # Step 0 - Basic Setup
+    LIGHTTAG_DOMAIN = config['domain']
     SERVER = f'https://{LIGHTTAG_DOMAIN}.lighttag.io/'
     API_BASE = SERVER + 'api/v1/'
-
+    LT_USERNAME = config['user']
+    LT_PASSWORD = config['pwd']
     response = requests.post(f"{SERVER}api/auth/token/create/",
                              json={"username": LT_USERNAME,
                                    "password": LT_PASSWORD})
-    res_json = response.json()
-    token = res_json['key']
+
+    token = response.json()['key']
     headers = {'Authorization': f'Token {token}'}
     session = requests.session()
     session.headers = headers
 
     # Step 1 Getting the examples to annotate
-    datasets = session.get(API_BASE+'projects/default/datasets/').json()
+    examples = session.get(f'{API_BASE}projects/default/datasets/{DATASET_NAME}/examples/').json()
 
-    try:
-        dataset = next(filter(lambda x: x['slug'] == DATASET_NAME, datasets))
-    except StopIteration:
-        print("Can't continue to execute. The dataset might not exist")
-        exit()
-
-    examples = session.get(dataset['url']+'examples/').json()
-
-    # Step 2 Get the tagset
-    schemas = session.get(f'{API_BASE}projects/default/schemas/').json()
-    schema = next(filter(lambda x: x['slug'] == SCHEMA_NAME, schemas))
-    assert schema, 'schema not found.'
+    # Step 2 Get schema and tags
+    schema = session.get(f'{API_BASE}projects/default/schemas/{SCHEMA_NAME}').json()
 
     tags = session.get(schema['url']+'tags/').json()
     tagset = {tag["name"]: tag["id"] for tag in tags}
@@ -49,7 +34,10 @@ def prepare_to_suggest(config):
     return {'session': session, 'schema': schema, 'api_base': API_BASE}, examples, tagset
 
 
-def generate_suggestions(examples, tagset):
+def generate_suggestions(examples, tagset, schema_name):
+    # Step 3 - Create your suggestions
+
+    # 3.1 - make a list of suggestions
     suggestions = []
     for example in examples:
         segmented = segment(example['content'], tagset)
@@ -62,13 +50,14 @@ def generate_suggestions(examples, tagset):
             }
             suggestions.append(suggestion)
 
+    # 3.2 - define a model
     model_metadata = {  # Define any metadata you'd like to store about the model
         "defined_by": "BoTokenizer",
         "comments": "Text segmented using pybo"
     }
     data = {
         "model": {
-            "name": "pybo-pos",  # Give the model a name
+            "name": schema_name,  # Give the model a name
             "metadata": model_metadata  # Provide metadata (optional)
         },
         "suggestions": suggestions  # Attach the suggestions you made before
@@ -76,29 +65,51 @@ def generate_suggestions(examples, tagset):
     return data
 
 
-def upload_suggestions(server, suggestions):
-    server['session'].post(f"{server['schema']['url']}models/bulk/", json=suggestions)
-    models = server['session'].get(server['schema']['url'] + 'models/').json()
-    modelIds = {"models": [x['id'] for x in models]}
+def upload_suggestions(session_parts, data):
+    # Step 4 - Upload your model and data
+    resp = session_parts['session'].post(f"{session_parts['schema']['url']}models/bulk/", json=data)
 
-    resp = server['session'].put(f"{server['api_base']}projects/default/task_definitions/explore-tags-only/",
-                                 json=modelIds).json()
-    return resp
+    if resp.status_code == 201:
+        print(resp.json())
+    else:
+        print('no json in response of uploading suggestions.', resp)
 
 
-def main(dataset, schema):
+def assign_suggestions_to_task(session_parts, model, task):
+    # Step 5 - Assign suggestion model to a task
+    models = session_parts['session'].get(session_parts['schema']['url'] + 'models/').json()
+    modelIds = {'models': [m['id'] for m in models if m['name'] == model]}
+
+    resp = session_parts['session'].put(f'{session_parts["api_base"]}projects/default/task_definitions/{task}/',
+                                 json=modelIds)
+
+    if resp.status_code == 201:
+        print(resp.json())
+    else:
+        print('no json in response of assigning suggestion to task.', resp)
+
+
+def main(dataset, schema, model, task):
     user, pwd = Path('config').read_text().strip().split('\n')
     config = {'domain': 'tiblex',
               'user': user,
               'pwd': pwd,
               'dataset': dataset,
               'schema': schema}
-    server, examples, tagset = prepare_to_suggest(config)
-    suggestions = generate_suggestions(examples, tagset)
-    resp = upload_suggestions(server, suggestions)
-    print(resp)
+
+    # Steps 0, 1 and 2
+    session_parts, examples, tagset = prepare_to_suggest(config)
+
+    # Step 3
+    data = generate_suggestions(examples, tagset, model)
+    # Step 4
+    upload_suggestions(session_parts, data)
+    # Step 5
+    assign_suggestions_to_task(session_parts, model, task)
 
 
-dataset = 'dzanglun-big-chunk'
-schema = 'segment'
-main(dataset, schema)
+dataset = 'test1'
+schema = 'pos-beta1'
+model = "pybo-pos"
+task = 'tset1'
+main(dataset, schema, model, task)
