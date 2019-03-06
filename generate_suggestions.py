@@ -19,14 +19,11 @@ def pos_suggestions(tokens):
     return output
 
 
-g = BoPipeline('dummy', 'pybo', ('pybo_pos_suggestions', pos_suggestions), 'dummy', pybo_profile='GMD')
-truc = g.pipe_str('ཀུན་ཀཀ་བཀྲ་ཤིས་པའི་བདེ་ལེགས།')
-# truc contains:
-# [['DET', 0, 3], ['non-word', 4, 6], ['NOUN', 7, 16], ['PART', 16, 18], ['NOUN', 19, 27]]
+pipeline = BoPipeline('dummy', 'pybo', ('pybo_pos_suggestions', pos_suggestions), 'dummy', pybo_profile='GMD')
 
 
 def segment(string, tagset):
-    suggestions = g.pipe_str(string)
+    suggestions = pipeline.pipe_str(string)
     for s in suggestions:
         try:
             s[0] = tagset[s[0]]
@@ -81,8 +78,5 @@ if __name__ == '__main__':
     task_name = 'test15'
 
     examples = [{'content': content, 'id': 'dunno'}]
-    suggestions = g.pipe_str(content)
-    for pos, start, end in suggestions:
-        substr = content[start:end]
-        print()
+    suggestions = pipeline.pipe_str(content)
     Path(task_name + '_suggestions.json').write_text(json.dumps(suggestions, sort_keys=True, indent=4))
