@@ -1,6 +1,10 @@
 import requests
-from generate_suggestions import segment
 from pathlib import Path
+from random import randint
+
+from generate_suggestions import segment
+from namegen import Theme, generate_name
+
 
 
 def prepare_to_suggest(config):
@@ -69,9 +73,10 @@ def upload_suggestions(session_parts, data):
     # Step 4 - Upload your model and data
     resp = session_parts['session'].post(f"{session_parts['schema']['url']}models/bulk/", json=data)
 
-    if resp.status_code == 201:
-        print(resp.json())
-    else:
+    try:
+        resp.json()
+        print('suggestions uploaded:', resp)
+    except AssertionError:
         print('no json in response of uploading suggestions.', resp)
 
 
@@ -83,9 +88,10 @@ def assign_suggestions_to_task(session_parts, model, task):
     resp = session_parts['session'].put(f'{session_parts["api_base"]}projects/default/task_definitions/{task}/',
                                  json=modelIds)
 
-    if resp.status_code == 201:
-        print(resp.json())
-    else:
+    try:
+        resp.json()
+        print('suggestions assigned to task.', resp)
+    except AssertionError:
         print('no json in response of assigning suggestion to task.', resp)
 
 
@@ -108,8 +114,10 @@ def main(dataset, schema, model, task):
     assign_suggestions_to_task(session_parts, model, task)
 
 
-dataset = 'test1'
+dataset = 'dzanglun-big-chunk'
 schema = 'pos-beta1'
-model = "pybo-pos"
-task = 'tset1'
+task = 'tset3'
+
+model = generate_name(Theme(), randint(3, 8))
+print(f'model name: {model}')
 main(dataset, schema, model, task)
