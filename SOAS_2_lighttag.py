@@ -65,17 +65,10 @@ def lighttag_base_pipeline():
     # tok: reuse bo_syl_tok
     # proc: spaces_plain_fulltext
     # frm: plaintext
-    pipes1 = {'pre': {'remove_returns': basic_cleanup},
-              'proc': {'merge_spaces': merge_spaces},
-              'frm': {'lighttag_raw': lighttag_raw}}
-
-    profile1 = {'lighttag_base':
-                    {'pre': 'remove_returns',
-                     'tok': 'syls',
-                     'proc': 'merge_spaces',
-                     'frm': 'lighttag_raw'}}
-
-    return BoPipeline(profile=profile1, new_pipes=pipes1)
+    return BoPipeline(basic_cleanup,
+                      'syls',
+                      merge_spaces,
+                      lighttag_raw)
 
 
 def lighttag_suggestion_pipeline():
@@ -83,22 +76,16 @@ def lighttag_suggestion_pipeline():
     # tok: syls
     # proc: ??? (process)
     # frm: json_maker
-    pipes2 = {'pre': {'keep_returns': keep_returns},
-              'proc': {'lighttag_suggestions': process},
-              'frm': {'json_maker': json_maker}}
-
-    profile2 = {'lighttag_suggestions':
-                    {'pre': 'keep_returns',
-                     'tok': 'syls',
-                     'proc': 'lighttag_suggestions',
-                     'frm': 'json_maker'}}
-
-    return BoPipeline(profile=profile2, new_pipes=pipes2)
+    return BoPipeline(keep_returns,
+                      'syls',
+                      process,
+                      json_maker)
 
 
 pipeline1 = lighttag_base_pipeline()
 pipeline2 = lighttag_suggestion_pipeline()
 
 
-pipeline1.pipe_file('soas-segmentation/mdzangs_blun.txt', 'lighttag/totag/')
+for f in Path('soas-segmentation/').glob('*.txt'):
+    pipeline1.pipe_file(f, 'lighttag/totag/')
 # pipeline2.pipe_file('soas-segmentation/mdzangs_blun.txt', 'lighttag/totag/')
