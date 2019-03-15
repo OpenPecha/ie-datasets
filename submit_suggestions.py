@@ -6,7 +6,6 @@ from generate_suggestions import segment
 from namegen import Theme, generate_name
 
 
-
 def prepare_to_suggest(config):
     DATASET_NAME = config['dataset']
     SCHEMA_NAME = config['schema']
@@ -114,9 +113,9 @@ def main(dataset, schema, model, task):
     assign_suggestions_to_task(session_parts, model, task)
 
 
-dataset = 'dzanglun-big-chunk'
+dataset = 'dzanglun_start_sentences'
 schema = 'pos-beta1'
-task = 'tset3'
+task = 'dzanglun_sentences'
 
 model = generate_name(Theme(), randint(3, 8))
 print(f'model name: {model}')

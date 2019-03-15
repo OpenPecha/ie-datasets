@@ -1,4 +1,10 @@
-from pybo import BoPipeline
+from pybo import BoPipeline, BoTokenizer
+
+tok = BoTokenizer('GMD')
+
+
+def bo_tok(text):
+    return tok.tokenize(text)
 
 
 def pos_suggestions(tokens):
@@ -20,8 +26,8 @@ def pos_suggestions(tokens):
 
 
 pipeline = BoPipeline('dummy',  # preprocessor
-                      'pybo',   # tokenizer
-                      ('pybo_pos_suggestions', pos_suggestions),  # processor
+                      bo_tok,   # tokenizer
+                      pos_suggestions,  # processor
                       'dummy',  # formatter
                       pybo_profile='GMD')
 
