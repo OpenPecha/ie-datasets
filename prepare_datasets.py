@@ -200,25 +200,35 @@ def format_sentences_for_lighttag(sentences):
     return jp.dumps(output)
 
 
+def get_sent_str(tokens):
+    sent_str = ''
+    for t in tokens:
+        if t.affix:
+            sent_str += ' ' + t.content
+        else:
+            sent_str += ' ' + t.content
+
+    return sent_str
+
+
 def format_to_csv(sentences):
     output = []
     for sent in sentences:
-        sent_str = ''.join([token.content for token in sent[1]])
+        sent_str = get_sent_str(sent[1])
         output.append((sent[0],sent_str))
 
-    output = sorted(output, key=lambda x: x[0], reverse=True)
-
-    return '\n'.join([f'{a[0]},{a[1]}' for a in output])
+    out = '\n'.join([f'{a[0]},{a[1]}' for a in output])
+    return out
 
 
 if __name__ == '__main__':
     pipeline = BoPipeline('dummy',
                           'pybo',
-                          ('pybo_sentences', paragraphify),
+                          ('pybo_sentences', sentencify),
                           format_to_csv,
                           pybo_profile='GMD')
 
     tokens = pipeline.pipe_file('verses.txt', 'lighttag')
-    in_str = 'འདི་ལ་ཡང་གཟུང་བའི་ཆ་ཡོད་ན་ཤེས་པ་ཡོད་ལ་མེད་ན་མེད་དེ། དེ་ལྟ་བས་ན་ལྷན་ཅིག་འབྱུང་བ་དེ་གཉིས་ཀྱང་རྒྱུ་དང་རྒྱུ་དང་ལྡན་པ་ཉིད་དུ་འགྲུབ་པོ། །གཏན་ཚིགས་པ་དག་ཅེས་བྱ་བ་ནི་གང་དག་གཏན་ཚིགས་ཀྱི་ཐ་སྙད་འདོགས་པ་དེ་དག་ནི་གཏན་ཚིགས་པ་དག་སྟེ། རྟོག་གེ་བ་ཞེས་བྱ་བའི་ཐ་ཚིག་གོ། །དེ་དང་ལྡན་པ་ཉིད་ཅེས་བྱ་བ་ནི་ཡོད་པ་དང་མེད་པ་དང་ལྡན་པ་ཉིད་དོ། །རྒྱུ་དང་རྒྱུ་དང་ལྡན་པ་ཞེས་བྱ་བ་ནི་རྒྱུ་དང་འབྲས་བུ་དག་ཅེས་བྱ་བའི་དོན་ཏོ། །'
-    print(pipeline.pipe_str(in_str))
+    # in_str = 'འདི་ལ་ཡང་གཟུང་བའི་ཆ་ཡོད་ན་ཤེས་པ་ཡོད་ལ་མེད་ན་མེད་དེ། དེ་ལྟ་བས་ན་ལྷན་ཅིག་འབྱུང་བ་དེ་གཉིས་ཀྱང་རྒྱུ་དང་རྒྱུ་དང་ལྡན་པ་ཉིད་དུ་འགྲུབ་པོ། །གཏན་ཚིགས་པ་དག་ཅེས་བྱ་བ་ནི་གང་དག་གཏན་ཚིགས་ཀྱི་ཐ་སྙད་འདོགས་པ་དེ་དག་ནི་གཏན་ཚིགས་པ་དག་སྟེ། རྟོག་གེ་བ་ཞེས་བྱ་བའི་ཐ་ཚིག་གོ། །དེ་དང་ལྡན་པ་ཉིད་ཅེས་བྱ་བ་ནི་ཡོད་པ་དང་མེད་པ་དང་ལྡན་པ་ཉིད་དོ། །རྒྱུ་དང་རྒྱུ་དང་ལྡན་པ་ཞེས་བྱ་བ་ནི་རྒྱུ་དང་འབྲས་བུ་དག་ཅེས་བྱ་བའི་དོན་ཏོ། །'
+    # print(pipeline.pipe_str(in_str))
     print('ok')
