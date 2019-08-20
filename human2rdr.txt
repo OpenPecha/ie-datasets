@@ -1,0 +1,5 @@
+ABC	-	\n
+a	-	b 
+c	-	d
+A	-	B
+C	-	D
