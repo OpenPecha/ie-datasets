@@ -2,13 +2,13 @@ import os
 import re
 
 # file containing find/replace expressions separated by "\t-\t"
-fnrExpressions = "humanrdr.txt"
+fnrExpressions = "human2rdr.txt"
 
 # directory with the files on which to apply fnr
-fnrDir = "soas-segmentation-biluo/out"
+fnrDir = "humanrdr"
 
-# new file prefix with following syntax _foo_
-newPrefix = "_2_"
+# new file prefix with following syntax: _foo_
+newPrefix = "_"
 
 # path to dir for output / optional
 outDir = ''
@@ -40,5 +40,5 @@ for dname, dirs, files in os.walk(fnrDir):
                 raws = f.read()
                 s = fnr(raws, fnrExpressions)
             
-            with open(oPath, "w") as f:
+            with open(oPath, "w", encoding='utf-8') as f:
                 f.write(s)

@@ -1,5 +1,13 @@
-ABC	-	\n
-a	-	b 
-c	-	d
-A	-	B
-C	-	D
+object.tag	-	བ
+object.word	-	ཐ
+== "	-	= 
+" : object.conclusion = "	-	 : 
+" and	-	 &
+object.prevTag1	-	བང༡
+object.prevTag2	-	བང༢
+object.nextTag1	-	བཇ༡
+object.nextTag2	-	བཇ༢
+object.prevWord1	-	ཐང༡
+object.prevWord2	-	ཐང༢
+object.nextWord1	-	ཐཇ༡
+object.nextWord2	-	ཐཇ༢
