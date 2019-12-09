@@ -1,6 +1,45 @@
 # bonlp-datasets 
 Training data for Tibetan nlp.
 
+## དཀར་ཆག Contents
+- `dudra/`
+  - `(B <definition>)` - མཚན་ཉིད།
+  - `(A <word that is defined>)` - མཚོན་བྱ།
+- `explanations/`
+  - `o <derivation-description>` - འགྲེལ་གཞི།
+  - `o* <derivation-description>` - འགྲེལ་བཤད།
+  - `o** <derivation-description>` - གཞུང་ཚན་རང་དང་འབྲེལ་བའིའགྲེལ་བཤད།
+- `grammar/`
+  - `o <derivation-description>` - འགྲེལ་གཞི།
+  - `o* <derivation-description>` - འགྲེལ་བཤད།
+  - `D <enumerated>` - དབྱེ་གཞི།
+  - `E <enumeration>` - དབྱེ་བ།
+  - `G <citation>` - ལུང་ཚིག
+  - `H <derivation>` - ལུང་ཁུངས།
+  - `N <main word>` - གོ་བྱ།
+  - `N* <Definition>` - གོ་དོན།
+  - `N** <exaple>` - དཔེར་བརྗོད།
+  - `A <source>` - མཚོན་བྱ།
+  - `N* <Definition>` - མཚན་ཉིད།
+  - `N** <exaple>` - དཔེར་བརྗོད།
+  - `Q <contents-outline>` - ས་བཅད་ཀྱི་གཞི།
+  - `R <word that is identified>` - ངོས་འཛིན་བྱ།
+  - `R* <identification>` - ངོས་འཛིན་བྱེད།
+  - `P <object of engagement>` - འཇུག་ཡུལ།
+  - `P* <the word to be used>` - འཇུག་བྱ།
+  - `K <title>` - མཚན་བྱང་།
+  - `F <epilogue>` - མཛད་བྱང་།
+ - `humanrdr/` 
+ - `lighttag/` 
+ - `soas-segmentation/`
+ - `soas-segmentation-biluo/`
+ 
+## Tags
+
+
+
+
+
 ## soas-segmentation
 Human correction of the segmentation of the SOAS corpus. 
 
