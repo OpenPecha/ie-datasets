@@ -21,7 +21,7 @@ Training data for Tibetan nlp.
   - `N** <exaple>` - དཔེར་བརྗོད།
   - `A <source>` - མཚོན་བྱ།
   - `N* <Definition>` - མཚན་ཉིད།
-  - `N** <exaple>` - དཔེར་བརྗོད།
+  - `N** <example>` - དཔེར་བརྗོད།
   - `Q <contents-outline>` - ས་བཅད་ཀྱི་གཞི།
   - `R <word that is identified>` - ངོས་འཛིན་བྱ།
   - `R* <identification>` - ངོས་འཛིན་བྱེད།
