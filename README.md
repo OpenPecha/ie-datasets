@@ -18,7 +18,7 @@ Training data for Tibetan nlp.
   - `H <derivation>` - ལུང་ཁུངས།
   - `N <main word>` - གོ་བྱ།
   - `N* <Definition>` - གོ་དོན།
-  - `N** <exaple>` - དཔེར་བརྗོད།
+  - `N** <example>` - དཔེར་བརྗོད།
   - `A <source>` - མཚོན་བྱ།
   - `N* <Definition>` - མཚན་ཉིད།
   - `N** <example>` - དཔེར་བརྗོད།
