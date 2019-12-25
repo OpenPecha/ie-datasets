@@ -53,7 +53,7 @@ Training data for Tibetan nlp.
   - `(o* <འགྲེལ་བཤད།>)` explanation
 - `/སྒྲ་བཤད། word part explanation/`
   - `(L <སྒྲ་གཞི>)` what is explained - (Lདུར་ཁྲོད་)ཀྱི་སྒྲ་བཤད་ལ། (Fདུར་ཆོས་ཉིད་དང་། ཁྲོད་དེ་རྟོགས་པའི་ཡེ་ཤེས་)ལ་བྱས་པའི་བཤད་པ་ཡོད་པས།
-  - `(F <སྒྲ་བཤད།>)` word part explanation - 
+  - `(F <སྒྲ་བཤད།>)` word part explanation 
 
   
   
