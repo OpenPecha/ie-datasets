@@ -15,7 +15,7 @@ We analysed the data to find the types of information which are the most relevan
 
 ## Trained Models
 
-[]() - []() - Citations ལུང་། + Sources ལུང་ཁུངས།
+[ie-citations-sources](https://github.com/OpenPecha/ie-citations-sources) - []() - Citations ལུང་། + Sources ལུང་ཁུངས།
 
 
 ## Annotated Datasets
