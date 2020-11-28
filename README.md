@@ -13,6 +13,10 @@ Our team surveyed Tibetan and Buddhist scholars to find out the type of informat
 
 We analysed the data to find the types of information which are the most relevant (most searched) in the specialized literature of each field. We decided to start focus on annotating key information that overlaps most fields. For instance "symptoms" are specific to medical literature and some astrology or mind training texts, while "citation" and "term definition" are common to all fields.
 
+## Trained Models
+
+[]() - []() - Citations ལུང་། + Sources ལུང་ཁུངས།
+
 
 ## Annotated Datasets
 
@@ -70,30 +74,8 @@ We analysed the data to find the types of information which are the most relevan
 
 []() - Date དུས་ཚིགས།; 
 
-## Trained Models
 
-[]() - []() - Citations ལུང་། + Sources ལུང་ཁུངས།
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Folder Structure (dir/tags)
+# Folder Structure (dir/tags)
 གཞུང་ཚན་སོ་སོའི་ནང་རྟགས་གང་བརྒྱབ་པ་དེ་ཡིན།
 - `/dudra/`
   - `(A <མཚོན་བྱ།>)` what is defined - (Bབློའི་ཡུལ་དུ་བྱ་རུང་)(Aཤེས་བྱ)འི་མཚན་ཉིད། མཚན་གཞི་(Aབུམ་པ)་ལྟ་བུ།
@@ -148,48 +130,11 @@ We analysed the data to find the types of information which are the most relevan
 
   
   
-  - `(humanrdr/` 
-  - `lighttag/` 
-  - `soas-segmentation/`
-  - `soas-segmentation-biluo/`
+- `/(humanrdr/` 
+- `/lighttag/` 
+- `/soas-segmentation/`
+- `/soas-segmentation-biluo/`
  
-## IE Temporary Tags
-
-| བོད། bo                    | ཨིན། en                       | རྟགས། tag        | མཆན། note                          |   |
-|---------------------------|------------------------------|-----------------|------------------------------------|---|
-| མཚོན་བྱ།                    | what is defined              | (A .......)     |                                    |   |
-| མཚན་ཉིད།                   | definition                   | (B .......)     |                                    |   |
-| མཚན་གཞི།                   | instance                     | (C .......)     |                                    |   |
-| དབྱེ་གཞི།                    | what is enumerated           | (D .......)     |                                    |   |
-| དབྱེ་བ།                     | enumeration                  | (E .......)     | རྣམ་གྲངས་འདིར་བསྡུས་ཡོད།                 |   |
-| སྒྲ་བཤད།                    | word part explanation        | (F .......)     |                                    |   |
-| སྒྲ་གཞི།                     | what is explained            | (L .......)     |                                    |   |
-| ལུང་ཚིག                     | citation                     | (G .......)     |                                    |   |
-| ལུང་ཁུངས།                   | source                       | (H .......)     |                                    |   |
-| མཛད་བྱང་།                  | authorship statement         | (I .......)     |                                    |   |
-| བསྒྱུར་བྱང་།                  | translation statement        | (J .......)     |                                    |   |
-| མཚན་བྱང་།                  | title                        | (K .......)     |                                    |   |
-| མཚོན་བྱ་ཡིན་ལ་དབྱེ་གཞི་ཡང་ཡིན་པ། |                              | (AD......)      | needs to be replaced               |   |
-| གོ་བྱ།                      | what is explained            | (N........)     |                                    |   |
-| གོ་དོན།                     | meaning                      | (N*........)    |                                    |   |
-| དཔེར་བརྗོད།                  | example                      | (N**........)   |                                    |   |
-| འགྲེལ་གཞི།                   | what is explained            | (O..........)   |                                    |   |
-| འགྲེལ་བཤད།                  | emplanation                  | (O*..........)  |                                    |   |
-| སྐབས་བསྟུན་འགྲེལ་བཤད།          | context-specific explanation | (O**..........) |                                    |   |
-| འགྲེལ་གཞི་དང་དེའི་དབྱེ་བ།        |                              | (OD.......)     | needs to be replaced               |   |
-| འཇུག་ཡུལ།                   | agreement female             | (P........)     | needs a better english translation |   |
-| འཇུག་བྱ།                    | agreement male               | (P*........)    | needs a better english translation |   |
-| མི་འཇུག་སའི་ཡུལ།              | illegal agreement female     | (PP...)         |                                    |   |
-| མི་འཇུག་ས།                  | illegal agreement male       | (PP*...)        |                                    |   |
-| ས་བཅད།                    | outline                      | (Q........)     |                                    |   |
-| ས་བཅད་ཀྱི་དབྱེ་གཞི།            | outline node                 | (Q*........)    |                                    |   |
-| ས་བཅད་ཀྱི་ནང་གསེས།           | outline branches             | (Q**........)   |                                    |   |
-| ངོས་འཛིན་བྱ།                 | what is identified           | (R.........)    |                                    |   |
-| ངོས་འཛིན་བྱེད།                | identification               | (R*.........)   |                                    |   |
-| རྩ་བ།                      | root text                    | (M.........)    |                                    |   |
-| འགྲེལ་བ།                    | commentary                   | (M*.........)   |                                    |   |
-
-
 
 # Word Segmentation
 Human correction of the segmentation of the SOAS corpus. 
