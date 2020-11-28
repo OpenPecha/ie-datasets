@@ -40,7 +40,7 @@ We analysed the data to find the types of information which are the most relevan
 
 ### Grammar Text Annotations (temporary tags)
 
-[]() - Gram. Agreement 1 + Gram. Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
+[]() - Agreement 1 + Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
 
 []() - Illegal Agreement 1 + Illegal Agreement 2 མི་འཇུག་སའི་ཡུལ། + མི་འཇུག་ས།; `(S<text>)`, `(S*<text>)`
 
