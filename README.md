@@ -1,8 +1,99 @@
-# bonlp-datasets 
-Training data for Tibetan nlp.
+# ie-datasets
 
-# IE (Information Extraction)
-## IE Annotated Data (dir/tags)
+This repository contains training data for information extraction in Tibetan etexts.
+We trained one model in 2020, then paused the training in order to focus on improving the infrastructure to store and share training data with users and contributers. After several trials and changes of direction, we decided to focus on ebook enrichment as a way to get high-quality annotations, and low cost annotators and data curators.
+
+## Background Research
+
+Our team surveyed Tibetan and Buddhist scholars to find out the type of information they look for when using books in their field. We asked more than 100 specialists from various fields to describe the last time they "scanned" a text (aka reading for specific information).
+
+[Key information in Tibetan Literature Survey (form)](https://docs.google.com/forms/d/1XJ1-gGJ7tl23WFzyM_8fCpwQ8kNBP1d67h5ChSKtzHk/edit)
+
+[Key information in Tibetan Literature Survey (results)](https://docs.google.com/spreadsheets/d/1bmZSb6glTFw6Lt_NNHoe-3AtuMsPUgYXhsfJgIVWnLc/edit#gid=810370707)
+
+We analysed the data to find the types of information which are the most relevant (most searched) in the specialized literature of each field. We decided to start focus on annotating key information that overlaps most fields. For instance "symptoms" are specific to medical literature and some astrology or mind training texts, while "citation" and "term definition" are common to all fields.
+
+
+## Annotated Datasets
+
+### General Annotations (temporary tags)
+
+[]() - Citations ལུང་། + Sources ལུང་ཁུངས།; `(G<text>)`, `(H<text>)`
+
+[]() - Definitions མཚན་ཉིད། + Defined མཚོན་བྱ། + Instances མཚན་གཞི།; `(A<text>)`, `(B<text>)`, `(C<text>)`
+
+[]() - Enumeration + Enumerated དབྱེ་གཞི། + དབྱེ་བ།; `(D<text>)`, `(E<text>)`
+
+[]() - Word Morphology + Word སྒྲ་བཤད། + སྒྲ་གཞི།; `(F<text>)`, `(L<text>)`
+
+[]() - Title + Colophon + Translation Statement མཚན་བྱང། + མཛད་བྱང་། + བསྒྱུར་བྱང་།; `(I<text>)`, `(J<text>)`, `(K<text>)`
+
+[]() - Meaning + Word + Example གོ་དོན། + གོ་བྱ། + དཔེར་བརྗོད།; `(N<text>)`, `(N*<text>)`, `(N**<text>)`
+
+[]() - Explanation + Explained + Contextual Explanation འགྲེལ་བཤད། འགྲེལ་གཞི། སྐབས་བསྟུན་འགྲེལ་བཤད།; `(O*<text>)`, `(O<text>)`, `(O**<text>)`
+
+[]() - Outline + Outline Node + Outline Branches ས་བཅད། + ས་བཅད་ཀྱི་དབེ་གཞི། + ས་བཅད་ཀྱི་ནང་གསེས།; `(Q<text>)`, `(Q*<text>)`, `(Q**<text>)`
+
+[]() - Identified + Identified དངོས་འཛིན་བྱ། + དངོས་འཛིན་བྱེད།; `(R<text>)`, `(R*<text>)`
+
+[]() - Root Text + Commentary རྩ་བ། + འགྲེལ་པ།; `(M<text>)`, `(M*<text>)`
+
+### Grammar Text Annotations (temporary tags)
+
+[]() - Gram. Agreement 1 + Gram. Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
+
+[]() - Illegal Agreement 1 + Illegal Agreement 2 མི་འཇུག་སའི་ཡུལ། + མི་འཇུག་ས།; `(S<text>)`, `(S*<text>)`
+
+### Editing Annotations (temporary tags)
+
+[]() - subscripts ཡིག་ཆུང་།; `(y<text>)`
+
+[]() - volume title ཡིག་ཆའི་མཚན་བྱང་།; `(k2<text>)`
+
+[]() - text title ཡིག་ཆའི་མཚན་བྱང་།; `(k1<text>)`
+
+[]() - Chapter title ཡིག་ཆའི་མཚན་བྱང་།; `(k3<text>)`
+
+[]() - note marker བསྡུར་མཆན་ཨང་།; `<text>#<text>` # for OCR training
+
+[]() - note marker བསྡུར་མཆན་ཨང་།; `<text>#<text>`
+
+[]() - potential error ཡིག་ནོར་དོགས་གཞི།; `[<error>,<correction>]`
+
+### NER Annotations (temporary tags)
+
+[]() - Person མི་སྣ།; 
+
+[]() - Author མཛད་པ་པོ།; `(au<text>)`
+
+[]() - Place ས་གནས།; 
+
+[]() - Date དུས་ཚིགས།; 
+
+## Trained Models
+
+[]() - []() - Citations ལུང་། + Sources ལུང་ཁུངས།
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Folder Structure (dir/tags)
 གཞུང་ཚན་སོ་སོའི་ནང་རྟགས་གང་བརྒྱབ་པ་དེ་ཡིན།
 - `/dudra/`
   - `(A <མཚོན་བྱ།>)` what is defined - (Bབློའི་ཡུལ་དུ་བྱ་རུང་)(Aཤེས་བྱ)འི་མཚན་ཉིད། མཚན་གཞི་(Aབུམ་པ)་ལྟ་བུ།
