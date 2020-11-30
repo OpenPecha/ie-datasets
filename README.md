@@ -25,16 +25,23 @@ We analysed the data to find the types of information which are the most relevan
 []() - Citations ལུང་། + Sources ལུང་ཁུངས།; `(G<text>)`, `(H<text>)`
 
 []() - Definitions མཚན་ཉིད། + Defined མཚོན་བྱ། + Instances མཚན་གཞི།; `(A<text>)`, `(B<text>)`, `(C<text>)`
-
-[]() - Enumeration + Enumerated དབྱེ་གཞི། + དབྱེ་བ།; `(D<text>)`, `(E<text>)`
-
-[]() - Word Morphology + Word སྒྲ་བཤད། + སྒྲ་གཞི།; `(F<text>)`, `(L<text>)`
+  - [མཚོན་བྱ་དང་མཚན་ཉིད།](https://github.com/buda-base/bonlp-datasets/tree/master/%E0%BD%98%E0%BD%9A%E0%BD%93%E0%BC%8B%E0%BD%89%E0%BD%B2%E0%BD%91%E0%BC%8D%20definition/etext)
+- Enumeration + Enumerated དབྱེ་གཞི། + དབྱེ་བ།; `(D<text>)`, `(E<text>)`
+  - [litghttag-training-NER-Enumeration-and-definition](https://github.com/OpenPecha/ie-datasets/tree/master/litghttag-training-NER-Enumeration-and-definition) - འདིའི་ནང་མཚོན་བྱ་མཚན་ཉིད་དང་དབྱེ་གཞི་དབྱེ་བ་མཉམ་དུ་འདུག
+  - [རྣམ་གྲངས། enumeration](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A2%E0%BE%A3%E0%BD%98%E0%BC%8B%E0%BD%82%E0%BE%B2%E0%BD%84%E0%BD%A6%E0%BC%8D%20enumeration/etext)
+- Word Morphology + Word སྒྲ་བཤད། + སྒྲ་གཞི།; `(F<text>)`, `(L<text>)`
+  - [སྒྲ་བཤད word part explanation](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A6%E0%BE%92%E0%BC%8D%E0%BC%8B%E0%BD%96%E0%BD%A4%E0%BD%91%20word%20part%20explanation/text)
 
 []() - Title + Colophon + Translation Statement མཚན་བྱང། + མཛད་བྱང་། + བསྒྱུར་བྱང་།; `(I<text>)`, `(J<text>)`, `(K<text>)`
 
-[]() - Meaning + Word + Example གོ་དོན། + གོ་བྱ། + དཔེར་བརྗོད།; `(N<text>)`, `(N*<text>)`, `(N**<text>)`
+- Meaning + Word + Example གོ་དོན། + གོ་བྱ། + དཔེར་བརྗོད།; `(N<text>)`, `(N*<text>)`, `(N**<text>)`
+  - [Lighttag-Training-NER-Explanation](https://github.com/OpenPecha/ie-datasets/tree/master/Lighttag-Training-NER-Explanation)
+  - [གོ་དོན། meaning](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%82%E0%BD%BC%E0%BC%8B%E0%BD%91%E0%BD%BC%E0%BD%93%E0%BC%8D%20meaning/text)
 
-[]() - Explanation + Explained + Contextual Explanation འགྲེལ་བཤད། འགྲེལ་གཞི། སྐབས་བསྟུན་འགྲེལ་བཤད།; `(O*<text>)`, `(O<text>)`, `(O**<text>)`
+- Explanation + Explained + Contextual Explanation འགྲེལ་བཤད། འགྲེལ་གཞི། སྐབས་བསྟུན་འགྲེལ་བཤད།; `(O*<text>)`, `(O<text>)`, `(O**<text>)`
+  - [lighttage_NER_Derivation-Description](https://github.com/OpenPecha/ie-datasets/tree/master/lighttage_NER_Derivation-Description)
+  - [explanations](https://github.com/OpenPecha/ie-datasets/tree/master/explanations)
+  - [འགྲེལ་བཤད། explanation](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A0%E0%BD%82%E0%BE%B2%E0%BD%BA%E0%BD%A3%E0%BC%8B%E0%BD%96%E0%BD%A4%E0%BD%91%E0%BC%8D%20explanation/text)
 
 []() - Outline + Outline Node + Outline Branches ས་བཅད། + ས་བཅད་ཀྱི་དབེ་གཞི། + ས་བཅད་ཀྱི་ནང་གསེས།; `(Q<text>)`, `(Q*<text>)`, `(Q**<text>)`
 
@@ -75,7 +82,7 @@ We analysed the data to find the types of information which are the most relevan
 []() - Date དུས་ཚིགས།; 
 
 
-# Folder Structure (dir/tags)
+# Repository Folder Structure (dir/tags)
 གཞུང་ཚན་སོ་སོའི་ནང་རྟགས་གང་བརྒྱབ་པ་དེ་ཡིན།
 - `/dudra/`
   - `(A <མཚོན་བྱ།>)` what is defined - (Bབློའི་ཡུལ་དུ་བྱ་རུང་)(Aཤེས་བྱ)འི་མཚན་ཉིད། མཚན་གཞི་(Aབུམ་པ)་ལྟ་བུ།
