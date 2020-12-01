@@ -22,38 +22,53 @@ We analysed the data to find the types of information which are the most relevan
 
 ### General Annotations (temporary tags)
 
-[]() - Citations ལུང་། + Sources ལུང་ཁུངས།; `(G<text>)`, `(H<text>)`
+- Citations ལུང་། + Sources ལུང་ཁུངས།; `(G<text>)`, `(H<text>)`
+  - [dudra](https://github.com/OpenPecha/ie-datasets/tree/master/dudra)
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
 []() - Definitions མཚན་ཉིད། + Defined མཚོན་བྱ། + Instances མཚན་གཞི།; `(A<text>)`, `(B<text>)`, `(C<text>)`
-  - [མཚོན་བྱ་དང་མཚན་ཉིད།](https://github.com/buda-base/bonlp-datasets/tree/master/%E0%BD%98%E0%BD%9A%E0%BD%93%E0%BC%8B%E0%BD%89%E0%BD%B2%E0%BD%91%E0%BC%8D%20definition/etext)
+  - [མཚན་ཉིད། Definition](https://github.com/buda-base/bonlp-datasets/tree/master/%E0%BD%98%E0%BD%9A%E0%BD%93%E0%BC%8B%E0%BD%89%E0%BD%B2%E0%BD%91%E0%BC%8D%20definition/etext)
+  - [dudra](https://github.com/OpenPecha/ie-datasets/tree/master/dudra)
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
+  - [litghttag-training-NER-Enumeration-and-definition](https://github.com/OpenPecha/ie-datasets/tree/master/litghttag-training-NER-Enumeration-and-definition)
+
 - Enumeration + Enumerated དབྱེ་གཞི། + དབྱེ་བ།; `(D<text>)`, `(E<text>)`
   - [litghttag-training-NER-Enumeration-and-definition](https://github.com/OpenPecha/ie-datasets/tree/master/litghttag-training-NER-Enumeration-and-definition) - འདིའི་ནང་མཚོན་བྱ་མཚན་ཉིད་དང་དབྱེ་གཞི་དབྱེ་བ་མཉམ་དུ་འདུག
   - [རྣམ་གྲངས། enumeration](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A2%E0%BE%A3%E0%BD%98%E0%BC%8B%E0%BD%82%E0%BE%B2%E0%BD%84%E0%BD%A6%E0%BC%8D%20enumeration/etext)
+  - [dudra](https://github.com/OpenPecha/ie-datasets/tree/master/dudra)
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
+
 - Word Morphology + Word སྒྲ་བཤད། + སྒྲ་གཞི།; `(F<text>)`, `(L<text>)`
   - [སྒྲ་བཤད word part explanation](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A6%E0%BE%92%E0%BC%8D%E0%BC%8B%E0%BD%96%E0%BD%A4%E0%BD%91%20word%20part%20explanation/text)
+  - [lighttage_NER_Derivation-Description](https://github.com/OpenPecha/ie-datasets/tree/master/lighttage_NER_Derivation-Description)
+  - [explanations](https://github.com/OpenPecha/ie-datasets/tree/master/explanations)
 
 []() - Title + Colophon + Translation Statement མཚན་བྱང། + མཛད་བྱང་། + བསྒྱུར་བྱང་།; `(I<text>)`, `(J<text>)`, `(K<text>)`
 
 - Meaning + Word + Example གོ་དོན། + གོ་བྱ། + དཔེར་བརྗོད།; `(N<text>)`, `(N*<text>)`, `(N**<text>)`
   - [Lighttag-Training-NER-Explanation](https://github.com/OpenPecha/ie-datasets/tree/master/Lighttag-Training-NER-Explanation)
   - [གོ་དོན། meaning](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%82%E0%BD%BC%E0%BC%8B%E0%BD%91%E0%BD%BC%E0%BD%93%E0%BC%8D%20meaning/text)
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
 - Explanation + Explained + Contextual Explanation འགྲེལ་བཤད། འགྲེལ་གཞི། སྐབས་བསྟུན་འགྲེལ་བཤད།; `(O*<text>)`, `(O<text>)`, `(O**<text>)`
   - [lighttage_NER_Derivation-Description](https://github.com/OpenPecha/ie-datasets/tree/master/lighttage_NER_Derivation-Description)
   - [explanations](https://github.com/OpenPecha/ie-datasets/tree/master/explanations)
   - [འགྲེལ་བཤད། explanation](https://github.com/OpenPecha/ie-datasets/tree/master/%E0%BD%A0%E0%BD%82%E0%BE%B2%E0%BD%BA%E0%BD%A3%E0%BC%8B%E0%BD%96%E0%BD%A4%E0%BD%91%E0%BC%8D%20explanation/text)
 
-[]() - Outline + Outline Node + Outline Branches ས་བཅད། + ས་བཅད་ཀྱི་དབེ་གཞི། + ས་བཅད་ཀྱི་ནང་གསེས།; `(Q<text>)`, `(Q*<text>)`, `(Q**<text>)`
+- Outline + Outline Node + Outline Branches ས་བཅད། + ས་བཅད་ཀྱི་དབེ་གཞི། + ས་བཅད་ཀྱི་ནང་གསེས།; `(Q<text>)`, `(Q*<text>)`, `(Q**<text>)`
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
-[]() - Identified + Identified དངོས་འཛིན་བྱ། + དངོས་འཛིན་བྱེད།; `(R<text>)`, `(R*<text>)`
+- Identified + Identified དངོས་འཛིན་བྱ། + དངོས་འཛིན་བྱེད།; `(R<text>)`, `(R*<text>)`
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
-[]() - Root Text + Commentary རྩ་བ། + འགྲེལ་པ།; `(M<text>)`, `(M*<text>)`
-
+- Root Text + Commentary རྩ་བ། + འགྲེལ་པ།; `(M<text>)`, `(M*<text>)`
+ 
 ### Grammar Text Annotations (temporary tags)
 
-[]() - Agreement 1 + Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
+- Agreement 1 + Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
+ - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
-[]() - Illegal Agreement 1 + Illegal Agreement 2 མི་འཇུག་སའི་ཡུལ། + མི་འཇུག་ས།; `(S<text>)`, `(S*<text>)`
+- Illegal Agreement 1 + Illegal Agreement 2 མི་འཇུག་སའི་ཡུལ། + མི་འཇུག་ས།; `(S<text>)`, `(S*<text>)`
 
 ### Editing Annotations (temporary tags)
 
@@ -81,7 +96,24 @@ We analysed the data to find the types of information which are the most relevan
 
 []() - Date དུས་ཚིགས།; 
 
+### Word Segmentation 
+- [soas-segmentation-biluo](https://github.com/OpenPecha/ie-datasets/tree/master/soas-segmentation-biluo) 
+- [soas-segmentation](https://github.com/OpenPecha/ie-datasets/tree/master/soas-segmentation)
+- [Childrens-Speech](https://github.com/Esukhia/Corpora/tree/master/Childrens-Speech)
+- [Nanhai](https://github.com/Esukhia/Corpora/tree/master/Nanhai)
+- [POS](https://github.com/Esukhia/Corpora/tree/master/POS)
+- [WebCrawl](https://github.com/Esukhia/Corpora/tree/master/WebCrawl)
+- [nalanda_segmentation](https://github.com/Esukhia/nalanda_segmentation)
 
+### POS Tag
+- [lighttag](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
+- [UD POS syntax csv file](https://docs.google.com/spreadsheets/d/140Nqi1DsDCfiwL8u3J3GJFeGdPmrJIn7_aLIHf2PoYY/edit#gid=971762751)
+- [SOAS POS Tags examples](https://docs.google.com/spreadsheets/d/18I3UF2TbNtL2NYMGbG2N8goULZZs1aM4WA-14TKW8zw/edit#gid=890687672)
+- [monlam POS Tags examples](https://docs.google.com/spreadsheets/d/1l_QUNaemaxtYFmpxpKnVln39jTvENCY4dn21FdB6JmY/edit#gid=890687672)
+- [Final POS tagset ཚིག་གཤིས།](https://docs.google.com/spreadsheets/d/129yIwP5lWascAfzJTF8XmFwHP1HqOmgsX0HDlzk5bVA/edit#gid=759672701)
+- [NER Entities རིག་མཚན་སོ་སོ་ཚིག་གནད་ངོས་འཛིན།](https://drive.google.com/drive/folders/1wC-tvuyT7Smp9Ekqt1wCfuGjQ5j30qo-)
+- [UD POS - Syntax](https://docs.google.com/document/d/12DiiLQbz_60Nslu7uChL8Ru65N2wN1pfrWHY1UCWm4g/edit#heading=h.b5qwexq8nw9u)
+- [bo-pos](https://github.com/Esukhia/bo-pos)
 # Repository Folder Structure (dir/tags)
 གཞུང་ཚན་སོ་སོའི་ནང་རྟགས་གང་བརྒྱབ་པ་དེ་ཡིན།
 - `/dudra/`
