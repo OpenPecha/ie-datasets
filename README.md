@@ -26,7 +26,7 @@ We analysed the data to find the types of information which are the most relevan
   - [dudra](https://github.com/OpenPecha/ie-datasets/tree/master/dudra)
   - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
-[]() - Definitions མཚན་ཉིད། + Defined མཚོན་བྱ། + Instances མཚན་གཞི།; `(A<text>)`, `(B<text>)`, `(C<text>)`
+- Definitions མཚན་ཉིད། + Defined མཚོན་བྱ། + Instances མཚན་གཞི།; `(A<text>)`, `(B<text>)`, `(C<text>)`
   - [མཚན་ཉིད། Definition](https://github.com/buda-base/bonlp-datasets/tree/master/%E0%BD%98%E0%BD%9A%E0%BD%93%E0%BC%8B%E0%BD%89%E0%BD%B2%E0%BD%91%E0%BC%8D%20definition/etext)
   - [dudra](https://github.com/OpenPecha/ie-datasets/tree/master/dudra)
   - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
@@ -66,7 +66,7 @@ We analysed the data to find the types of information which are the most relevan
 ### Grammar Text Annotations (temporary tags)
 
 - Agreement 1 + Agreement 2 འཇུག་ཡུལ། + འཇུག་བྱ།; `(P<text>)`, `(P*<text>)`
- - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
+  - [grammar](https://github.com/OpenPecha/ie-datasets/tree/master/grammar)
 
 - Illegal Agreement 1 + Illegal Agreement 2 མི་འཇུག་སའི་ཡུལ། + མི་འཇུག་ས།; `(S<text>)`, `(S*<text>)`
 
